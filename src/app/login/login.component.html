@@ -1,0 +1,59 @@
+<header>
+  <nav class="navbar navbar-expand-md navbar-dark bg-primary">
+    <ul class="navbar-nav">
+      <li><a  routerLink="/welcome/karamoua" class="nav-link"><fa-icon [icon]="home"></fa-icon> Home</a></li>&nbsp;
+      <!-- <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn()" routerLink="/todos" class="nav-link">Todos</a></li>&nbsp;
+      <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn()" routerLink="/students" class="nav-link">Students</a></li>&nbsp; -->
+    
+      
+    </ul>
+   
+  </nav>
+  
+ <!-- <button (click)="save()"> Save data to Session Storage</button> -->
+
+</header>
+<h1>Welcome to the top recommendation App</h1>
+<p>
+<h2>Login Page</h2>
+<div class="container">
+
+<div>
+  
+   
+      <div class="alert alert-danger"  *ngIf='errorMessage'>{{ errorMessage }}</div>
+  
+    
+    <form >
+    <div class="form-group">
+        <label for="email"><fa-icon [icon]="emailIcon"></fa-icon> Email:</label>
+        <input type="email" class="form-control" placeholder="Enter email"name="email" id="email" [(ngModel)]="email">
+      </div>
+      <div class="form-group">
+        <label for="pwd"><fa-icon [icon]="passwordIcon"></fa-icon> Password:</label>
+        <input type="password" class="form-control" placeholder="Enter password" name="password"id="password" [(ngModel)]="password">
+      </div>
+      <h6>Please select a role *</h6>
+      <input type="radio"  id="admin" name="usertype" value="admin"[(ngModel)]="role">
+      <label class="form-check-label" for="admin">  Admin</label> <p></p> 
+      <input type="radio" id="user" name="usertype" value="user"[(ngModel)]="role">
+      <label for="user">  User</label>
+      <div class="form-group form-check">
+        <label class="form-check-label">
+          <input class="form-check-input" type="checkbox"> Remember me
+        </label>
+      </div>
+      <button class="btn btn-success">
+      <fa-icon [icon]="login"></fa-icon>
+      <input   type="submit" class="btn btn-success" value="Login" (click)="handleLogin()">
+    </button> 
+    </form>
+    <p>You don't already have an acoount? Please Register <a routerLink="/register">here </a>
+   
+
+
+  
+    
+    
+    
+   

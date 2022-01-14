@@ -1,0 +1,33 @@
+<h1>Welcome Page</h1>
+<div class="container">
+    Welcome to our app!!!Welcome dear {{ h }}<br>
+</div>
+<div class="container">
+    You can manage your users <a routerLink="/users">here </a>
+</div>
+<div class="container">
+   Click Here to get a customized message
+   <button (click)="getWelcomeMessage()" class="btn btn-success" >Get Welcome message</button>
+</div>
+<div class="container" *ngIf='welcomeMessageFromBackendWithParameter'>
+   <h2>Your message from backend</h2>
+    {{welcomeMessageFromBackendWithParameter}}
+ </div>
+ <p>
+
+
+   <div *ngIf='h'>
+
+      geia soudhfhgdgsfshajshgfsg
+   </div>
+    <!-- <div class="container">
+        Click Here to get a customized message with parameter
+        <button (click)="getWelcomeMessage()" class="btn btn-success" >Get Welcome message with Parameter</button>
+     </div>
+     <div class="container" *ngIf='welcomeMessageFromBackendWithParameter'>
+        <h2>Your message from backend</h2>
+         {{welcomeMessageFromBackendWithParameter }}
+      </div> -->
+
+     
+ 

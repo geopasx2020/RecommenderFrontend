@@ -1,0 +1,96 @@
+<div class="alert alert-danger"  *ngIf='error'>{{ error}}</div>
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-primary">
+      <ul class="navbar-nav">
+        <li><a  routerLink="/welcome/karamoua" class="nav-link">Home</a></li>&nbsp;
+
+        
+        <li><a    routerLink="/users" class="nav-link">Users</a></li>&nbsp;
+      
+        
+      </ul>
+      <ul class="navbar-nav navbar-collapse justify-content-end">
+        
+      
+        <li><a   (click)="logout()"  routerLink="/logout" class="nav-link">Logout</a></li>
+      
+      </ul>
+    </nav>
+    
+   <!-- <button (click)="save()"> Save data to Session Storage</button> -->
+  
+  </header>
+  <h4><p style="color:red;"> * All Fields are required</h4>
+  <div class="m-3"> 
+    <form  (ngSubmit)="onSubmit()" #adduserForm="ngForm">
+      <div class="form-group" [class.has-error]="firstname.invalid && firstname.touched" >
+        <label class="control-label">First Name *</label>
+        <input type="text" class="form-control" id="firstName" required minlength="4" 
+         [(ngModel)]= "User.firstname" name="firstName" #firstname="ngModel">             
+        <span class="help-block" *ngIf="firstname.invalid && firstname.touched">
+          <p style="color:red;">  First Name is Required - At Least 4 characters</p>
+        </span>
+        </div>
+        <div class="form-group" [class.has-error]="lastname.invalid  && lastname.touched">
+          <label class="control-label">Last Name *</label>
+          <input type="text" class="form-control" id="lastname" 
+           [(ngModel)]= "User.lastname" name="lastName" required minlength="4" #lastname="ngModel">
+           <span class="help-block" *ngIf="lastname.invalid && lastname.touched">
+            <p style="color:red;">  Last Name is Required - At Least 4 characters</p>
+          </span>
+      </div>
+  
+      <div class="form-group" [class.has-error]="email.invalid  && email.touched">
+        <label class="control-label">Email *</label>
+        <input type="text" class="form-control" [email]="User.email!==''" id="email" 
+         [(ngModel)]= "User.email" name="email" required  #email="ngModel">
+         <span class="help-block" *ngIf="email.errors?.required && email.touched">
+          <p style="color:red;">  Email is Required - At Least 4 characters</p>
+        </span>
+        <span class="help-block" *ngIf="email.errors?.email && email.touched">
+          <p style="color:red;">  Email is Invalid </p>
+        </span>
+        </div>
+        <div class="form-group" [class.has-error]="password.invalid && password.touched">
+          <label class="control-label">Password *</label>
+          <input type="password" class="form-control" id="password" 
+           [(ngModel)]= "User.password" name="password" required minlength="4" #password="ngModel">
+           <span class="help-block" *ngIf="password.invalid && password.touched">
+            <p style="color:red;">  Password is Required - At Least 4 characters</p>
+          </span>          
+      </div>
+      <div class="form-group" [class.has-error]="date.invalid && date.touched">
+        <label class="control-label">Date Of Birth *</label>
+        <input type="date" class="form-control" id="dob" 
+         [(ngModel)]= "User.dob" name="dob" required #date="ngModel">
+         <div class="alert alert-warning" *ngIf="date.invalid">Please Enter  Date</div>
+         <span class="help-block" *ngIf="date.invalid && date.touched">
+          <p style="color:red;"> Date is Required </p>
+        </span>
+    </div>
+          
+    <div class="form-group" [class.has-error]="date.invalid && date.touched">
+    <label class="control-label">Select Gender:* &nbsp;</label>
+
+      <select id="gender" [(ngModel)]="User.gender" name="gender" required #gender="ngModel">
+        <option value="male">Male
+        <option value="female">Female
+      </select><br>
+      </div>
+      <div class="form-group" [class.has-error]="date.invalid && date.touched">
+        <label class="control-label">Select Employement Status:* &nbsp;</label>
+        <select id="empStatus" [(ngModel)]="User.empStatus" name="empStatus" required #empStatus="ngModel">
+          <option value="current employee">Current Employee
+          <option value="ex employee">Ex Employee
+          <option value="student">student
+          <option value="unemployed">unemployed
+        </select>
+      </div>
+      <label class="control-label">Registration Date: &nbsp;</label> 
+      <input type="text" class="form-control"   [disabled]="true" id="regd" 
+      [(ngModel)]= "User.regd" name="regd"   #regd="ngModel" placeholder="{{ registrationDate| date:'yyyy-MM-dd'  }}">
+      
+   
+      <button [disabled]="adduserForm.form.invalid" class="btn btn-success" (click)=onSubmit() type="submit">Submit</button>
+  </form>
+  
