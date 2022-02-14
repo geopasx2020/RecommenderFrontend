@@ -39,12 +39,7 @@ export class AddInterestingsComponent implements OnInit {
     this.userService.getUserById(this.id).subscribe(data=>{
       this.User=data;
     },error=>console.log(error));
-    // this.userService.getUserById(this.id)
-    // .subscribe(
-    //   data1=>this.User=data1);   
-    //   this.userService.getUserById(this.id)
-    //   .subscribe(
-    //     data1=>this.gender=data1.gender); 
+ 
     this.http.get<any>(`http://localhost:8080/api/v1/user/interestings`, {
       })
     .subscribe((data) => {
@@ -90,13 +85,11 @@ export class AddInterestingsComponent implements OnInit {
       this.userId=localStorage.getItem('userid')
       for (let i = 0; i <= this.selectedInteresting.length; i++) {
         
-        // this.interArrIdUser.push(data.interestings[i].id)
-        // this.selectedInteresting.push(data.interestings[i].id.toString())
+       
         this.interId=this.selectedInteresting[i]
         this.userService.createInterestingByUser(this.userId,this.interId,this.User)
       
-        // console.log('aaaaaaa interId',this.interId)
-        // console.log('bbbbbbbbbbbbbb userId=',localStorage.getItem('userid'))
+       
         
       }
      

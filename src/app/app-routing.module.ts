@@ -9,6 +9,7 @@ import { ListStudentsComponent } from './list-students/list-students.component';
 import { ListTodoComponent } from './list-todo/list-todo.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
+import { PoisComponent } from './pois/pois.component';
 import { RegisterComponent } from './register/register.component';
 import { RouteGuardService } from './service/route-guard.service';
 import { TermsComponent } from './terms/terms.component';
@@ -39,6 +40,12 @@ const routes:Routes=[
   {path:'userpage',component:UsersPageComponent},
   {path:'userprofile',component:UserProfileComponent},
   {path:'addinteresting',component:AddInterestingsComponent},
+  {path:'viewpois',component:PoisComponent},
+  {path:'category/:id',component:PoisComponent},
+  {path:'category',component:PoisComponent},
+  {path:'pois',component:PoisComponent},
+  {path:'',redirectTo:'/pois',pathMatch:'full'},
+  {path:'**',redirectTo:'/pois',pathMatch:'full'},
   {path:'**',component:ErrorComponent}
 ];
 

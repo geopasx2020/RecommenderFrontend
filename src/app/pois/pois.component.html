@@ -1,0 +1,58 @@
+<html>
+    <title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<p>pois works!</p>
+Our categories:
+<ul>
+    <li>History,Music,Sports,Museums</li>
+    <li>Art,Bars,Nature,Gastronomy</li>
+    <li>Religion,Shopping,Theater,Cinema,</li>
+</ul>
+
+    
+<input type="text" [(ngModel)]="category" (input)="Search()" placeholder="search poi by category"><p>
+    
+    <h2>Angular 12 Star Rating Example</h2>
+    <ngb-rating [max]="5" [(rate)]="starRating" [readonly]="false"></ngb-rating>
+
+<div class="w3-container">
+<div style="height: 600px;overflow: scroll;">
+    <table  border="1" class="table table-striped table-hover table-wrapper-scroll-y my-custom-scrollbar" width="100%">
+        
+        <thead>
+            <tr >
+               <th style="width:4.66%"> Title</th>
+               <th style="width:4.66%">Category</th>
+               <th style="width:4.66%"> Start Time</th>
+               <th style="width:4.66%">End Time</th>
+               <th style="width:4.66%"> indoor</th>
+               <th style="width:4.66%"> Image</th>
+               
+            </tr>
+        </thead>
+        
+        <tbody>
+            <tr *ngFor= "let poi of pois" >
+                <!-- <td><button (click)="showPoiByCategoryId(poi.categoryId)" class="btn btn-danger"><i class="fa fa-trash"></i> History</button></td> -->
+                <td style="width:4.66%" >{{poi.title }}</td>
+                <td style="width:4.66%" >{{poi.category}}</td>
+                <td style="width:4.66%" >{{poi.startTime}}</td>
+                <td style="width:4.66%">{{poi.endTime}}</td> 
+                <td style="width:4.66%">{{poi.indoor}}</td> 
+                <td style="width:4.66%"><img src="{{poi.imagePath}}"  class="w3-round-xlarge"></td> 
+                                               
+            </tr>
+        </tbody>
+      
+    </table>
+    
+    </div>
+    </div>
+    <router-outlet></router-outlet>
+   
+
+    </html>
+    
+    
+    

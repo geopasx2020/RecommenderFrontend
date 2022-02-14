@@ -34,49 +34,7 @@
       <p></p>
       
       
-<!-- <div style="height: 600px;overflow: scroll;">
-<table  border="1" class="table table-striped table-hover table-wrapper-scroll-y my-custom-scrollbar" width="5">    
-    <thead>
-        <tr >
-            <th style="width:16.66%"> First Name:</th> <th>{{ firstname }}</th>
-         </tr>
-         <tr>
-            <th style="width:16.66%">Last Name: </th><th>{{ lastname }}</th>
-         </tr>
-         <tr>
-            <th style="width:16.66%">Email:</th><th> {{ emailp }}</th>
-        </tr>
-        <tr>
-            <th style="width:16.66%">Password:</th><th> {{ password }}</th><th>
-        </tr>
-        <tr>
-            <th style="width:16.66%">Date of Birth:</th> <th>{{ dob}}</th>
-        </tr>
-        <tr>
-            <th style="width:16.66%">Age:</th><th> {{ age}}</th>
-        </tr>
-        <tr>
-            <th style="width:16.66%">My Interestings :</th>
-            <th>
-            <ul class="list-group">
-                <li *ngFor= "let interesting of interestings">
-                {{ interesting }}
-                </li>
-            </ul>
-            </th>
-            <td>
-                <button  (click)=onSubmit(id) class="btn btn-success"> Update Interesting</button>
-            </td>
-        </tr>
-        <tr>
-            <th style="width:16.66%">Registration Date:</th><th> {{registrationDate}}</th>
-        </tr>
-        <tr>
-            <th style="width:16.66%">Employment Status:</th><th> {{empStatus}}</th>
-        </tr>
-    </thead>        
-           
-</table> -->
+
 <h1>Welcome to our Recommendation System - Your Profile</h1>
 <div class="alert alert-success"  *ngIf='message'>{{ message}}</div>
 <div class="container">
@@ -100,7 +58,7 @@
     <thead>
         <tr >
            <th style="width:4.66%"> First Name</th>
-           <th style="width:4.66%">Last Name</th>
+           <th style="width:15%">Last Name</th>
            <th style="width:4.66%">Email</th>
            <th style="width:4.66%">Password</th>
            <th style="width:4.66%">DOB</th>
@@ -116,16 +74,16 @@
     
     <tbody>
         <tr >
-            <td style="width:4.66%" >{{ firstname }}</td>            
-            <td style="width:4.66%" >{{lastname}}</td>
-            <td style="width:4.66%" >{{email}}</td>
-            <td style="width:4.66%">{{password}}</td> 
-            <td style="width:4.66%">{{ dob}}</td> 
-            <td style="width:4.66%">{{role}}</td>
-            <td style="width:4.66%">{{gender}}</td>
-            <td style="width:4.66%">{{age}}</td>
-            <td style="width:4.66%">{{empStatus}}</td>
-            <td style="width:4.66%">{{registrationDate}}</td>
+            <td style="width:5%" >{{ firstname }}</td>            
+            <td style="width:5%" >{{lastname}}</td>
+            <td style="width:5%" >{{email}}</td>
+            <td style="width:5%">{{password}}</td> 
+            <td style="width:5%">{{ dob}}</td> 
+            <td style="width:5%">{{role}}</td>
+            <td style="width:5%">{{gender}}</td>
+            <td style="width:5%">{{age}}</td>
+            <td style="width:5%">{{empStatus}}</td>
+            <td style="width:5%">{{registrationDate}}</td>
             <!-- <td><button  (click)="updateUser(user.id)" class="btn btn-info">Update</button></td>
             <td><button (click)="deleteUsers(user.id)" class="btn btn-danger">Delete</button></td> -->
         </tr>
@@ -134,13 +92,19 @@
             <td>
             <ol class="list-group">
                 
-                <li *ngFor= "let interesting of interestings">
-                    <td>                
-                    {{ interesting }}
-                    </td>
+                <p *ngFor= "let interesting of interestings" >
+                <tr>
+                    <td style="width:5%">                
+                    {{ interesting }} {{ interesting.imagePath }}
+                    </td> 
                     
+                 <!-- <td *ngFor= "let image of interestingsImage">                
+                        <img class="logo" src="{{interestingsImage1}}"> 
+                </td>                       -->
                     
-                </li>
+                </tr>           
+                </p>
+                
                 
             </ol>
             </td>
@@ -154,6 +118,7 @@
 </table>
 
 </div>
+
 
   
        

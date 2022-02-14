@@ -1,0 +1,8 @@
+.active-link{
+    font-color:red;
+}
+
+ngb-rating {
+    color: #FFC107;
+    font-size: 30px;
+}

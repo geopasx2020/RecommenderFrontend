@@ -21,6 +21,8 @@ export class UserProfileComponent implements OnInit {
   password:String='';
   dob:any;
   interestings: Array<any>=[];
+  interestingsImage: Array<any>=[];
+  interestingsImage1: any;
   message:any;
   id:any;
   email:any;
@@ -68,15 +70,32 @@ export class UserProfileComponent implements OnInit {
        this.empStatus=data.empStatus
        this.gender=data.gender
        
+       
       for (var i = 0; i < data.interestings.length; i++){
         this.count=i;
         console.log('bbbbb',data.interestings[i])
         this.interestings.push(data.interestings[i].description)
         
         
+        
       }
       console.log('cccccccc',this.interestings)
     })
+
+    // this.userService.getInterestingsByUser(this.id).subscribe(data=>{
+    //   console.log('interestings',data)
+    //   console.log('despoi',data.interestings[0].imagePath)
+      
+    //   for (var i = 0; i < data.interestings.length; i++){
+    //     this.count=i;
+    //     console.log('bbbbb',data.interestings[i])
+    //     this.interestingsImage1=this.interestingsImage.push(data.interestings[i].imagePath)
+        
+        
+        
+    //   }
+    //   console.log('cccccccc',this.interestings)
+    // })
     
 
   }

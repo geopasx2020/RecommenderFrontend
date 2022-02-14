@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { LoginComponent } from './login/login.component';
@@ -28,6 +28,8 @@ import { UserpageComponent } from './userpage/userpage.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { AddInterestingsComponent } from './add-interestings/add-interestings.component';
+import { PoisComponent } from './pois/pois.component';
+import { ProductCategoryMenuComponent } from './product-category-menu/product-category-menu.component';
 
 
 
@@ -54,7 +56,9 @@ import { AddInterestingsComponent } from './add-interestings/add-interestings.co
     WelcomeuserComponent,
     UserpageComponent,
     UserProfileComponent,
-    AddInterestingsComponent 
+    AddInterestingsComponent,
+    PoisComponent,
+    ProductCategoryMenuComponent 
    
     
    
@@ -65,7 +69,8 @@ import { AddInterestingsComponent } from './add-interestings/add-interestings.co
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
