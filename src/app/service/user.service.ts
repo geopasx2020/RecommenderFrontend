@@ -79,6 +79,10 @@ export class UserService {
   getPoiByCategory(categoryId:any):Observable<Poi>{
     return this.httpClient.get<Poi>(`http://localhost:8080/category/categories/${categoryId}/pois`)
   }
+
+  getUserId():Number {
+    return new Number(sessionStorage.getItem('userid'));
+  }
   
 
 

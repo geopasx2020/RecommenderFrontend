@@ -1,3 +1,4 @@
+<p>pois-admin works!</p>
 <html>
     <title>W3.CSS</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,7 +27,7 @@ Our categories:
                <th style="width:4.66%">End Time</th>
                <th style="width:4.66%"> indoor</th>
                <th style="width:4.66%"> Image</th>
-               <th style="width:4.66%"> Rating </th>
+               
                
             </tr>
         </thead>
@@ -40,7 +41,7 @@ Our categories:
                 <td style="width:4.66%">{{poi.endTime}}</td> 
                 <td style="width:4.66%">{{poi.indoor}}</td> 
                 <td style="width:4.66%"><img src="{{poi.imagePath}}"  class="w3-round-xlarge"></td> 
-                <td style="width:4.66%"> <ngb-rating [max]="5" [(rate)]="poi.score_cur" [readonly]="false" (rateChange)="onChangeRating($event,poi.id)"></ngb-rating></td> 
+               
                                                
             </tr>
         </tbody>

@@ -44,6 +44,7 @@ const routes:Routes=[
   {path:'category/:id',component:PoisComponent},
   {path:'category',component:PoisComponent},
   {path:'pois',component:PoisComponent},
+  {path:'recommendations',component:PoisComponent},
   {path:'',redirectTo:'/pois',pathMatch:'full'},
   {path:'**',redirectTo:'/pois',pathMatch:'full'},
   {path:'**',component:ErrorComponent}

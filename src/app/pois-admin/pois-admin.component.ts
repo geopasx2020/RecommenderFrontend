@@ -6,33 +6,28 @@ import { PoiCategory } from '../common/poi-category';
 import { UserService } from '../service/user.service';
 
 @Component({
-  selector: 'app-pois',
-  templateUrl: './pois.component.html',
-  styleUrls: ['./pois.component.css']
+  selector: 'app-pois-admin',
+  templateUrl: './pois-admin.component.html',
+  styleUrls: ['./pois-admin.component.css']
 })
-export class PoisComponent implements OnInit {
+export class PoisAdminComponent implements OnInit {
   pois: any[];
   currentPoiId:any;
   pois2: any[];
   categoryId:any;
   pois3:Poi[]=[];
   category:any;
- categories:PoiCategory[]=[];
-//  starRating = 0; 
-  
-   
-
-  
-
-  constructor( private router:Router,
+  categories:PoiCategory[]=[];
+ starRating = 0; 
+  constructor(private router:Router,
     private userService:UserService,private httpClient: HttpClient,
-    private route:ActivatedRoute) {   //useful for accessing route parameters
+    private route:ActivatedRoute) { 
       this.pois=[];
       this.pois2=[];
       this.pois3=[];
       this.categories=[];
     }
-    
+
   ngOnInit(): void {
     this.route.paramMap.subscribe(()=>{
       const hasCategoryId:boolean=this.route.snapshot.paramMap.has('id')
@@ -49,7 +44,6 @@ export class PoisComponent implements OnInit {
         console.log(this.pois);
       })
     })
-    
   }
   Search(){
     if(this.category!=""){
@@ -63,22 +57,5 @@ export class PoisComponent implements OnInit {
         return res.category.toLocaleLowerCase().match(this.category.toLocaleLowerCase());
       })
   }
-  onSubmit(){
-    this.httpClient.get<PoiCategory[]>(`http://localhost:8080/category/allcategories`).subscribe(data=>{
-    this.categories=data;})
-  }
-  onChangeRating(addingscore: any,poiId:number){
-    console.log(addingscore,poiId)
-    this.httpClient.post(`http://localhost:8080/pois/${poiId}/review`, {score:addingscore,userId:this.userService.getUserId()} );
-    this.httpClient.get<PoiCategory[]>(`http://localhost:8080/category/allcategories`).subscribe(data=>{
-      this.categories=data;})
-  }
-  }
 
-
-
-  
-
-  
-  
-
+}

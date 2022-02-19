@@ -30,6 +30,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { AddInterestingsComponent } from './add-interestings/add-interestings.component';
 import { PoisComponent } from './pois/pois.component';
 import { ProductCategoryMenuComponent } from './product-category-menu/product-category-menu.component';
+import { PoisAdminComponent } from './pois-admin/pois-admin.component';
 
 
 
@@ -58,7 +59,8 @@ import { ProductCategoryMenuComponent } from './product-category-menu/product-ca
     UserProfileComponent,
     AddInterestingsComponent,
     PoisComponent,
-    ProductCategoryMenuComponent 
+    ProductCategoryMenuComponent,
+    PoisAdminComponent 
    
     
    

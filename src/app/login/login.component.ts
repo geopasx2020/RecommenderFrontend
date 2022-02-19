@@ -70,7 +70,8 @@ export class LoginComponent implements OnInit {
   
     resp.subscribe(data=>{this.message=data;
       console.log(this.message)
-      localStorage.setItem('userid', this.message[0].id.toString());
+      localStorage.setItem('userid', this.message.id.toString());
+      sessionStorage.setItem('userid', this.message.id.toString());
       if(this.role==='admin'&&this.message.length!==0){
         this.isLoggedIn=true;         
          this.router.navigate(["adminpage"])  
@@ -88,7 +89,7 @@ export class LoginComponent implements OnInit {
      
    }
   
-    sessionStorage.setItem('loggedUser', this.email);
+  sessionStorage.setItem('loggedUser', this.email);
     
 
 }
