@@ -5,6 +5,7 @@ import { User } from 'src/Models/User';
 import { Poi } from 'src/Models/Poi';
 import { Interesting } from 'src/Models/Interesting';
 import {catchError, map} from 'rxjs/operators';
+import { Review } from 'src/Models/Review';
 
 
 
@@ -16,6 +17,7 @@ import {catchError, map} from 'rxjs/operators';
 export class UserService {
   User:User=new User('',new Date(),'','','','','user','','',[],new Date(),'');
   Poi:Poi=new Poi('','','','','','','','');
+  Review:Review=new Review('','','','');
   constructor(private httpClient :HttpClient) { 
 
   }
@@ -83,6 +85,12 @@ export class UserService {
   getUserId():Number {
     return new Number(sessionStorage.getItem('userid'));
   }
+  addReview(poiId:any,review:Review):Observable<Object>{
+    
+    return this.httpClient.post(`http://localhost:8080/pois/${poiId}/review`, review );
+
+  }
+
   
 
 

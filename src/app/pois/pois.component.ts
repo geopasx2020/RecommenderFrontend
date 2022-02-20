@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Poi } from 'src/Models/Poi';
+import { User } from 'src/Models/User';
+import { Review } from 'src/Models/Review';
 import { PoiCategory } from '../common/poi-category';
 import { UserService } from '../service/user.service';
 
@@ -18,6 +20,9 @@ export class PoisComponent implements OnInit {
   pois3:Poi[]=[];
   category:any;
  categories:PoiCategory[]=[];
+ review:any
+ userId_00:any
+ postData:any;
 //  starRating = 0; 
   
    
@@ -31,10 +36,13 @@ export class PoisComponent implements OnInit {
       this.pois2=[];
       this.pois3=[];
       this.categories=[];
+      this.review=[];
+
     }
     
   ngOnInit(): void {
     this.route.paramMap.subscribe(()=>{
+      this.userId_00=this.userService.getUserId();
       const hasCategoryId:boolean=this.route.snapshot.paramMap.has('id')
       if (hasCategoryId){
         this.currentPoiId= this.route.snapshot.paramMap.get('id');
@@ -67,11 +75,20 @@ export class PoisComponent implements OnInit {
     this.httpClient.get<PoiCategory[]>(`http://localhost:8080/category/allcategories`).subscribe(data=>{
     this.categories=data;})
   }
-  onChangeRating(addingscore: any,poiId:number){
-    console.log(addingscore,poiId)
-    this.httpClient.post(`http://localhost:8080/pois/${poiId}/review`, {score:addingscore,userId:this.userService.getUserId()} );
-    this.httpClient.get<PoiCategory[]>(`http://localhost:8080/category/allcategories`).subscribe(data=>{
-      this.categories=data;})
+  onChangeRating(addingscore: any,poiId:number,userId:any){
+    this.postData={
+      score:addingscore,
+      userId:userId
+    }
+    console.log("adding score",addingscore,"poiid",poiId,"userid",userId)
+
+    console.log('userId',this.userService.getUserId())
+    this.httpClient.post(`http://localhost:8080/pois/${poiId}/review`, {
+      score:addingscore,userId:userId} ).subscribe(responseData=>{
+        console.log('responseData:',responseData);
+      });  
+  
+   
   }
   }
 

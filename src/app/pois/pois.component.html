@@ -40,9 +40,10 @@ Our categories:
                 <td style="width:4.66%">{{poi.endTime}}</td> 
                 <td style="width:4.66%">{{poi.indoor}}</td> 
                 <td style="width:4.66%"><img src="{{poi.imagePath}}"  class="w3-round-xlarge"></td> 
-                <td style="width:4.66%"> <ngb-rating [max]="5" [(rate)]="poi.score_cur" [readonly]="false" (rateChange)="onChangeRating($event,poi.id)"></ngb-rating></td> 
-                                               
+                <td style="width:4.66%"> <ngb-rating [max]="5" [(rate)]="poi.score_cur" [readonly]="false" (rateChange)="onChangeRating($event,poi.id,userId_00)"></ngb-rating></td> 
+                <!-- <button  class="btn btn-success" (click)=onChangeRating($event,poi.id,userId_00) type="submit">Submit</button>                          -->
             </tr>
+         
         </tbody>
       
     </table>
