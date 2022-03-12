@@ -31,6 +31,7 @@ import { AddInterestingsComponent } from './add-interestings/add-interestings.co
 import { PoisComponent } from './pois/pois.component';
 import { ProductCategoryMenuComponent } from './product-category-menu/product-category-menu.component';
 import { PoisAdminComponent } from './pois-admin/pois-admin.component';
+import { UserRecommendationsComponent } from './user-recommendations/user-recommendations.component';
 
 
 
@@ -60,7 +61,8 @@ import { PoisAdminComponent } from './pois-admin/pois-admin.component';
     AddInterestingsComponent,
     PoisComponent,
     ProductCategoryMenuComponent,
-    PoisAdminComponent 
+    PoisAdminComponent,
+    UserRecommendationsComponent 
    
     
    

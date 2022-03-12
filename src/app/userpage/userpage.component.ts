@@ -33,6 +33,7 @@ export class UserpageComponent implements OnInit {
    h=sessionStorage.getItem('loggedUser');
    User:any
   ngOnInit(): void {
+    
   }
   logout(){
     this.h="";

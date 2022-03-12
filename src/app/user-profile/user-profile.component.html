@@ -1,25 +1,25 @@
 <header>
     <nav class="navbar navbar-expand-md navbar-dark bg-primary">
       <ul class="navbar-nav">
-        <li><a  routerLink="/welcome/karamoua" class="nav-link"><fa-icon [icon]="home"></fa-icon>Home</a></li>&nbsp;
+        <li><a  routerLink="/login" class="nav-link"><fa-icon [icon]="home"></fa-icon>Home</a></li>&nbsp;
         <!-- <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn()" routerLink="/todos" class="nav-link">Todos</a></li>&nbsp;
         <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn()" routerLink="/students" class="nav-link">Students</a></li>&nbsp; -->
         <li><a    routerLink="/userprofile" class="nav-link"><fa-icon [icon]="userIcon"></fa-icon> My Profile</a></li>&nbsp;
-        <li><a    routerLink="/recommendations" class="nav-link"><fa-icon [icon]="userIcon"></fa-icon> My Recommendations</a></li>&nbsp;
-        
+        <li><a    routerLink="/recommendations" class="nav-link"><fa-icon [icon]="locationIcon"></fa-icon> My Recommendations</a></li>&nbsp;
+        <li><a    routerLink="/addreviews" class="nav-link"><fa-icon [icon]="iconStar"></fa-icon> Add Reviews</a></li>&nbsp;
       
         
       </ul>
       <ul class="navbar-nav navbar-collapse justify-content-end">
         
-      
-        <li><a   (click)="logout()"  routerLink="/logout" class="nav-link"><fa-icon [icon]="arrowOut"></fa-icon> Logout</a></li>
+        <li><a   class="nav-link"><fa-icon [icon]="userIcon"></fa-icon> {{ firstname }} {{ lastname }}  </a></li>
+        <li><a   (click)="logout()"  routerLink="/logout" class="nav-link"><fa-icon [icon]="arrowOut"></fa-icon> Logout    </a></li>
       
       </ul>
     </nav>  
   
   </header>
-  Welcome  dear {{ firstname }}  {{ lastname }}
+<p>  Welcome  dear {{ firstname }}  {{ lastname }}
  
 <div class="container">
     <div style="text-align: right;">
@@ -87,19 +87,24 @@
         <th style="width:16.66%">My Interestings :</th>
             <td>
             <ol class="list-group">
-                
-                <p *ngFor= "let interesting of interestings" >
+                <ol>
+                <li *ngFor= "let interesting of interestings" >
                 <tr>
-                    <td style="width:5%">                
-                    {{ interesting }} {{ interesting.imagePath }}
+                
+                    <td style="width:5%" bgcolor="#52FF33">                
+                    {{ interesting}} 
+                  
                     </td> 
+              
                     
                  <!-- <td *ngFor= "let image of interestingsImage">                
                         <img class="logo" src="{{interestingsImage1}}"> 
                 </td>                       -->
                     
-                </tr>           
-                </p>
+                </tr>  
+                   
+                </li>
+            </ol>  
                 
                 
             </ol>

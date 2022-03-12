@@ -1,3 +1,16 @@
 th, td {
     padding: 50 px;
   }
+
+  p {
+    font-family: Tahoma, Verdana, sans-serif;
+    }
+ header {
+      font-family: Tahoma, Verdana, sans-serif;
+      }
+  h1 {
+        font-family: Tahoma, Verdana, sans-serif;
+        }
+  table{
+          font-family: Tahoma, Verdana, sans-serif;
+          }

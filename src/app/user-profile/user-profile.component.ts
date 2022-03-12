@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/Models/User';
 import { UserService } from '../service/user.service';
-import { faFilm,faUser,faArrowAltCircleLeft,faHome } from '@fortawesome/free-solid-svg-icons';
+import { faFilm,faUser,faArrowAltCircleLeft,faHome,faLocationArrow,faStar } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-user-profile',
@@ -10,6 +10,9 @@ import { faFilm,faUser,faArrowAltCircleLeft,faHome } from '@fortawesome/free-sol
   styleUrls: ['./user-profile.component.css']
 })
 export class UserProfileComponent implements OnInit {
+  locationIcon=faLocationArrow;
+  iconStar=faStar;
+  category:String='';
   filmIcon = faFilm;
   userIcon=faUser;
   arrowOut=faArrowAltCircleLeft;
@@ -69,6 +72,8 @@ export class UserProfileComponent implements OnInit {
        this.registrationDate=data.regd;
        this.empStatus=data.empStatus
        this.gender=data.gender
+      
+      
        
        
       for (var i = 0; i < data.interestings.length; i++){

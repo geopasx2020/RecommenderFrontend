@@ -30,6 +30,11 @@ export class UserService {
     return this.httpClient.get<Poi[]>(`http://localhost:8080/pois`);
   }
 
+  getRecommendationList(userId:any):Observable<Poi[]>{
+    
+    return this.httpClient.get<Poi[]>(`http://localhost:8080/pois/recommendations/${userId}`);
+  }
+
 
   
 

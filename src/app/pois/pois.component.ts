@@ -6,6 +6,7 @@ import { User } from 'src/Models/User';
 import { Review } from 'src/Models/Review';
 import { PoiCategory } from '../common/poi-category';
 import { UserService } from '../service/user.service';
+import { faArrowAltCircleLeft, faFilm, faHome, faUser,faLocationArrow,faStar } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-pois',
@@ -23,6 +24,13 @@ export class PoisComponent implements OnInit {
  review:any
  userId_00:any
  postData:any;
+ filmIcon = faFilm;
+ userIcon=faUser;
+ arrowOut=faArrowAltCircleLeft;
+ locationIcon=faLocationArrow;
+ iconStar=faStar;
+ home=faHome;
+ h=sessionStorage.getItem('loggedUser');
 //  starRating = 0; 
   
    
@@ -30,7 +38,8 @@ export class PoisComponent implements OnInit {
   
 
   constructor( private router:Router,
-    private userService:UserService,private httpClient: HttpClient,
+    private userService:UserService,
+    private httpClient: HttpClient,
     private route:ActivatedRoute) {   //useful for accessing route parameters
       this.pois=[];
       this.pois2=[];
@@ -76,20 +85,36 @@ export class PoisComponent implements OnInit {
     this.categories=data;})
   }
   onChangeRating(addingscore: any,poiId:number,userId:any){
-    this.postData={
+    /*this.postData={
       score:addingscore,
-      userId:userId
+      userId:userId*/
+    if(!addingscore || isNaN(addingscore)){
+          return 
     }
     console.log("adding score",addingscore,"poiid",poiId,"userid",userId)
 
     console.log('userId',this.userService.getUserId())
-    this.httpClient.post(`http://localhost:8080/pois/${poiId}/review`, {
+    
+    this.httpClient.post(`http://localhost:8080/pois/${poiId}/review`, 
+    {
       score:addingscore,userId:userId} ).subscribe(responseData=>{
         console.log('responseData:',responseData);
       });  
   
    
   }
+  logout(){
+    this.h=null;
+
+
+    localStorage.clear()
+
+   
+   sessionStorage.removeItem('loggedUser');
+  
+   this.router.navigate(['login']);
+
+}
   }
 
 

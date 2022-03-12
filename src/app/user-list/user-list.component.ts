@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/Models/User';
 import { UserService } from '../service/user.service';
-import { faFilm,faUser,faArrowAltCircleLeft,faHome,faPen,faPlusCircle, faPlus,faCalendar,faEnvelope,faPersonBooth } from '@fortawesome/free-solid-svg-icons';
+import { faFilm,faUser,faArrowAltCircleLeft,faHome,faPen,faPlusCircle, faPlus,faCalendar,faEnvelope,faPersonBooth,faLocationArrow } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-user-list',
@@ -18,6 +18,7 @@ export class UserListComponent implements OnInit {
   plus=faPlus;
   emailIcon=faEnvelope;
   genderIcon=faPersonBooth
+  locationIcon=faLocationArrow
   
   message:any
  users: User[]
