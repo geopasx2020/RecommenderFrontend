@@ -1,29 +1,26 @@
-<header>
-  <nav class="navbar navbar-expand-md navbar-dark bg-primary">
+<!-- <header>
+  <nav class="navbar navbar-expand-md navbar-dark bg-primary" width="500px">
+    <div class="container-fluid">
     <ul class="navbar-nav">
-      <li><a  routerLink="/login" class="nav-link"><fa-icon [icon]="home"></fa-icon> Home</a></li>&nbsp;
-      <!-- <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn()" routerLink="/todos" class="nav-link">Todos</a></li>&nbsp;
-      <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn()" routerLink="/students" class="nav-link">Students</a></li>&nbsp; -->
-    
+      <li><a  routerLink="/login" class="nav-link"><fa-icon [icon]="home"></fa-icon> Home</a></li>&nbsp;    
       
     </ul>
-   
+   </div>
   </nav>
-  
- <!-- <button (click)="save()"> Save data to Session Storage</button> -->
+ 
+ 
 
-</header>
+</header> -->
+<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 <h1>Welcome to the top recommendation App</h1>
 <p>
+  <div class="signin">
+  <div class="back-img">
 <h2>Login Page</h2>
 <div class="container">
-
-<div>
+ <div class="alert alert-danger"  *ngIf='errorMessage'>{{ errorMessage }}</div>
   
-   
-      <div class="alert alert-danger"  *ngIf='errorMessage'>{{ errorMessage }}</div>
-  
-    
+ 
     <form >
     <div class="form-group">
         <label for="email"><fa-icon [icon]="emailIcon"></fa-icon> Email:</label>
@@ -33,6 +30,9 @@
         <label for="pwd"><fa-icon [icon]="passwordIcon"></fa-icon> Password:</label>
         <input type="password" class="form-control" placeholder="Enter password" name="password"id="password" [(ngModel)]="password">
       </div>
+      <p>
+        <br>
+        
       <h6>Please select a role *</h6>
       <input type="radio"  id="admin" name="usertype" value="admin"[(ngModel)]="role">
       <label class="form-check-label" for="admin">  Admin</label> <p></p> 
@@ -44,14 +44,19 @@
         </label>
       </div>
       <button class="btn btn-success">
+        
       <fa-icon [icon]="login"></fa-icon>
       <input   type="submit" class="btn btn-success" value="Login" (click)="handleLogin()">
     </button> 
+    <div class="layer">
+    </div><!--/.layer-->
     </form>
-    <p>You don't already have an acount? Please Register <a routerLink="/register">here </a>
+    
+    <div>You don't already have an acount? Please Register <a routerLink="/register">here </a>
    
-
-
+    </div>
+  </div>
+</div>
   
     
     

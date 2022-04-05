@@ -7,7 +7,9 @@ export class Poi{
         public endTime:String,
         public indoor:String,
         public imagePath:String,
-        public category_id:any
+        public category_id:any,
+        public latitude:any,
+        public longtitude:any
 
     )
     {}

@@ -16,7 +16,7 @@ import { Review } from 'src/Models/Review';
 })
 export class UserService {
   User:User=new User('',new Date(),'','','','','user','','',[],new Date(),'');
-  Poi:Poi=new Poi('','','','','','','','');
+  Poi:Poi=new Poi('','','','','','','','','','');
   Review:Review=new Review('','','','');
   constructor(private httpClient :HttpClient) { 
 
@@ -63,7 +63,7 @@ export class UserService {
     
 
     return this.httpClient.get( `http://localhost:8080/api/v1/user/User/${email}/${password}/${role}`);
-    
+    // return this.httpClient.get( `http://127.0.0.1:8080/api/v1/user/login/${email}/${password}`);
   }
 
   getProfileDetailsByUser(userId:any):Observable<User>{
@@ -95,6 +95,10 @@ export class UserService {
     return this.httpClient.post(`http://localhost:8080/pois/${poiId}/review`, review );
 
   }
+
+  getPoiByID(poiId:number):Observable<Poi>{
+    return this.httpClient.get<Poi>(`http://localhost:8080/pois/getpoi/${poiId}`);
+}
 
   
 

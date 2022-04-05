@@ -9,6 +9,7 @@ import { ListStudentsComponent } from './list-students/list-students.component';
 import { ListTodoComponent } from './list-todo/list-todo.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
+import { MapComponent } from './map/map.component';
 import { PoisAdminComponent } from './pois-admin/pois-admin.component';
 import { PoisComponent } from './pois/pois.component';
 import { RegisterComponent } from './register/register.component';
@@ -48,6 +49,8 @@ const routes:Routes=[
   {path:'category',component:PoisComponent},
   {path:'addreviews',component:PoisComponent},
   {path:'recommendations',component:UserRecommendationsComponent},
+  {path:'map',component:MapComponent},
+  {path:'map/:id',component:MapComponent},
   {path:'',redirectTo:'/pois',pathMatch:'full'},
   {path:'**',redirectTo:'/pois',pathMatch:'full'},
   {path:'**',component:ErrorComponent}

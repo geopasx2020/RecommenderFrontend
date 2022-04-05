@@ -1,7 +1,16 @@
 <html>
-    <title>W3.CSS</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <head>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+   
+  </head>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+  integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+  crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+  integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+  crossorigin=""></script>
+<body>
 <header>
     <nav class="navbar navbar-expand-md navbar-dark bg-primary">
       <ul class="navbar-nav">
@@ -24,7 +33,24 @@
   
   </header>
   <p>
+  
 Recommendations which best suit to your profile:
+<!-- <div class="map-container">
+  <div class="map-frame">
+    <div id="map"></div>
+  </div>
+</div> -->
+<script>
+ var map = L.map('map').setView([51.505, -0.09], 13);
+ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    maxZoom: 18,
+    id: 'mapbox/streets-v11',
+    tileSize: 512,
+    zoomOffset: -1,
+    accessToken: 'your.mapbox.access.token'
+}).addTo(map);
+</script>
 <p>
 <div class="w3-container">
 <div style="height: 600px;overflow: scroll;">
@@ -38,6 +64,7 @@ Recommendations which best suit to your profile:
                <th style="width:4.66%">End Time</th>
                <th style="width:4.66%"> indoor</th>
                <th style="width:4.66%"> Image</th>
+               <th style="width:4.66%"> Average Score </th>
                
             </tr>
         </thead>
@@ -50,11 +77,9 @@ Recommendations which best suit to your profile:
                 <td style="width:4.66%" >{{poi.startTime}}</td>
                 <td style="width:4.66%">{{poi.endTime}}</td> 
                 <td style="width:4.66%">{{poi.indoor}}</td> 
-                <td style="width:4.66%"><img src="{{poi.imagePath}}"  class="w3-round-xlarge"></td> 
-              
-                <!-- <button  class="btn btn-success" (click)=onChangeRating($event,poi.id,userId_00) type="submit">Submit</button>                          -->
-            </tr>
-         
+                <td style="width:4.66%"><img src="{{poi.imagePath}}"  class="w3-round-xlarge"><br><a  routerLink="['/map',map.id]"  (click)="goToMap(poiId)"><fa-icon [icon]="mapIcon"></fa-icon> Map</a><button  (click)="goToMap(poiId)" class="btn btn-info"><fa-icon [icon]="mapIcon"></fa-icon> Map2</button></td> 
+                <td style="width:4.66%"> <ngb-rating [max]="5" [(rate)]="poi.averageScore" [readonly]="true" ></ngb-rating></td>            
+            </tr>         
         </tbody>
       
     </table>
@@ -62,6 +87,6 @@ Recommendations which best suit to your profile:
     </div>
     </div>
     <router-outlet></router-outlet>
-   
+  </body>
 
     </html>

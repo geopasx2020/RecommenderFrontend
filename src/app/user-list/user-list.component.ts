@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/Models/User';
 import { UserService } from '../service/user.service';
-import { faFilm,faUser,faArrowAltCircleLeft,faHome,faPen,faPlusCircle, faPlus,faCalendar,faEnvelope,faPersonBooth,faLocationArrow } from '@fortawesome/free-solid-svg-icons';
+import { faFilm,faUser,faArrowAltCircleLeft,faHome,faPen,faPlusCircle,faMale,faFemale, faPlus,faCalendar,faEnvelope,faPersonBooth,faLocationArrow } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-user-list',
@@ -19,6 +19,16 @@ export class UserListComponent implements OnInit {
   emailIcon=faEnvelope;
   genderIcon=faPersonBooth
   locationIcon=faLocationArrow
+  firstname:String='';
+  lastname:String='';
+  id:any;
+  email:any;
+  maleIcon=faMale;
+  femaleIcon=faFemale;
+  gender:any;
+  isMan:any;
+  picture: any;
+ 
   
   message:any
  users: User[]
@@ -45,6 +55,24 @@ export class UserListComponent implements OnInit {
         this.router.navigate(['/login'])
       }
       
+      sessionStorage.setItem('authenticaterUser',this.email);
+        this.id=localStorage.getItem('userid')
+        this.userService.getProfileDetailsByUser(this.id).subscribe(data=>{
+        this.firstname=data.firstname
+        this.lastname=data.lastname
+        this.email=data.email
+        this.gender=data.gender
+        if (this.gender="male"){
+          this.isMan=true
+        }
+        else{
+          this.isMan=false
+        }
+      
+          
+           
+      
+        })
     console.log( this.h)
   
    
@@ -86,6 +114,7 @@ export class UserListComponent implements OnInit {
        
         this.router.navigate(['login']);
       } 
+
 
    
 

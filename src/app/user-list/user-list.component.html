@@ -16,7 +16,13 @@
         <!-- (click)="this.hardcodedAuthenticationService.logout()" -->
        
         <!-- <li><a  (click)="logout()" routerLink="/logout" class="nav-link">Logout</a></li></div> -->
-        <li><a   (click)="logout()"  routerLink="/logout" class="nav-link"><fa-icon [icon]="arrowOut"></fa-icon> Logout</a></li>
+        <!-- <li><a   (click)="logout()"  routerLink="/logout" class="nav-link"><fa-icon [icon]="arrowOut"></fa-icon> Logout</a></li> -->
+      
+      </ul>
+      <ul class="navbar-nav navbar-collapse justify-content-end">
+      
+        <li><a   class="nav-link"><fa-icon [icon]="userIcon"></fa-icon> {{ firstname }} {{ lastname }}  </a></li>
+        <li><a   (click)="logout()"  routerLink="/logout" class="nav-link"><fa-icon [icon]="arrowOut"></fa-icon> Logout    </a></li>
       
       </ul>
     </nav>
@@ -69,7 +75,7 @@
             <td style="width:4.66%">{{user.password}}</td> 
             <td style="width:4.66%">{{user.dob|date|uppercase}}</td> 
             <td style="width:4.66%">{{user.role}}</td>
-            <td style="width:4.66%">{{user.gender}}</td>
+            <td style="width:4.66%"><fa-icon *ngif="isMan" [icon]="maleIcon"></fa-icon> {{user.gender}}</td>
             <td style="width:4.66%">{{user.age}}</td>
             <td style="width:4.66%">{{user.empStatus}}</td>
             <td style="width:4.66%">{{user.regd}}</td>

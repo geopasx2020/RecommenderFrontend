@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/Models/User';
 import { HardcodedAuthenticationService } from '../service/hardcoded-authentication.service';
-import { faFilm,faUser,faArrowAltCircleLeft,faHome,faLocationArrow,faStar } from '@fortawesome/free-solid-svg-icons';
+import { faFilm,faUser,faArrowAltCircleLeft,faHome,faLocationArrow,faStar,faMale,faFemale } from '@fortawesome/free-solid-svg-icons';
+import { UserService } from '../service/user.service';
 @Component({
   selector: 'app-adminpage',
   templateUrl: './adminpage.component.html',
@@ -19,11 +20,18 @@ export class AdminpageComponent implements OnInit {
   User:User=new User('',new Date(),'','','','','user','','',[],new Date(),'');
   email:any;
   user:any;
+  firstname:String='';
+  lastname:String='';
+  id:any;
+  maleIcon=faMale;
+  femaleIcon=faFemale;
+  
   
 public isLoggedin:boolean=false;
 
  constructor(
    public hardcodedAuthenticationService:HardcodedAuthenticationService,
+   private userService:UserService,
    
    public router:Router) { 
 
@@ -37,8 +45,20 @@ public isLoggedin:boolean=false;
       this.router.navigate(['login']);
 
     }
+    sessionStorage.setItem('authenticaterUser',this.email);
+        this.id=localStorage.getItem('userid')
+        this.userService.getProfileDetailsByUser(this.id).subscribe(data=>{
+        this.firstname=data.firstname
+        this.lastname=data.lastname
+        this.email=data.email
+      
+          
+           
+      
+        })
  
  }
+ 
 
  logout(){
    this.h=null;

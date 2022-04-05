@@ -18,7 +18,8 @@
     </nav>
     
   </header>
-   <h1>User Registration Page</h1>
+   <h3>User Registration Page  - Please fill in this form to create an account.</h3>
+ 
    <h4><p style="color:red;"> * All Fields are required</h4>
     <div class="m-3"> 
       <div class="alert alert-warning" *ngIf="registerForm.invalid && registerForm.dirty">Please Enter Valid Values</div>
@@ -92,9 +93,11 @@
           <input type="text" class="form-control"  [disabled]="true" id="regd" 
           [(ngModel)]= "User.regd" name="regd"   #regd="ngModel" placeholder="{{ registrationDate }}">
         </div>
+      
         <div>
-        <button [disabled]="registerForm.form.invalid" class="btn btn-success" (click)=onSubmit() type="submit">Submit</button>
-       </div>
+        <!-- <button [disabled]="registerForm.form.invalid" class="btn btn-success" (click)=onSubmit() type="submit">Submit</button> -->
+        <button [disabled]="registerForm.form.invalid" type="submit" class="registerbtn" (click)=onSubmit()>Register</button>
+      </div>
       </form>
      
       

@@ -1,3 +1,23 @@
 p {
     font-family: Tahoma, Verdana, sans-serif;
     }
+table {
+        font-family: Tahoma, Verdana, sans-serif;
+            }
+button {
+        font-family: Tahoma, Verdana, sans-serif;
+        }
+header {
+            font-family: Tahoma, Verdana, sans-serif;
+            height: inherit;
+            width: 100%;
+            /* position: absolute; */
+            }
+ngb-rating {
+            color: #FFC107;
+            font-size: 30px;
+            }           
+
+          
+               
+           
