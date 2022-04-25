@@ -29,6 +29,9 @@ export class UserRecommendationsComponent implements OnInit {
   mapIcon=faMap;
   geoLong:any;
   geoLat:any;
+  id:any;
+  lastname:String='';
+  firstname:String='';
   popup = L.popup();
   h=sessionStorage.getItem('loggedUser');
  private initMap():void{
@@ -68,6 +71,7 @@ export class UserRecommendationsComponent implements OnInit {
   
   ngOnInit(): void {
     // this.initMap();
+    this.id=localStorage.getItem('userid')
     this.route.paramMap.subscribe(()=>{
       this.userId_00=this.userService.getUserId();
       const hasCategoryId:boolean=this.route.snapshot.paramMap.has('id')
@@ -85,6 +89,13 @@ export class UserRecommendationsComponent implements OnInit {
          this.poiId=this.pois[3].id
       })
     })
+    this.userService.getProfileDetailsByUser(this.id).subscribe(data=>{
+       this.firstname=data.firstname
+       this.lastname=data.lastname
+       console.log('FN:',this.firstname) 
+        
+        
+      } )
   }
   logout(){
     this.h=null;

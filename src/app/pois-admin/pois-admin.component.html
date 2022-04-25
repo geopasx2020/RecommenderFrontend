@@ -41,16 +41,20 @@
 
 <html>
     <title>W3.CSS</title>
-
-Our categories:
-<ul>
-    <li>History,Music,Sports,Museums</li>
-    <li>Art,Bars,Nature,Gastronomy</li>
-    <li>Religion,Shopping,Theater,Cinema,</li>
-</ul>
-
+  <p>
+    <div>
+      <span *ngFor="let item of categories2">
+        <input
+          type="checkbox"
+          [(ngModel)]="item.checked"
+          (change)="changeCheckbox($event, item.category)"
+        />
+         {{ item.category }}
+      </span>
+    </div>
+<p>
     
-<input type="text" [(ngModel)]="category" (input)="Search()" placeholder="search poi by category"><p>
+<!-- <input type="text" [(ngModel)]="category" (input)="Search()" placeholder="search poi by category"><p> -->
     
 
 <div class="w3-container">
@@ -90,6 +94,14 @@ Our categories:
     
     </div>
     </div>
+    <p>
+    <div class="raw">
+      <!-- <button (click)="addUser()" class="btn btn-success"><fa-icon [icon]="plus"></fa-icon> Add User</button> -->
+      <div class="raw">
+        
+        <button  (click)="addPoi()" class="btn btn-success"><fa-icon [icon]="plus"></fa-icon> Add Poi</button>
+    </div>
+  </div>
     <router-outlet></router-outlet>
    
 

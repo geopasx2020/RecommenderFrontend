@@ -19,6 +19,68 @@ export class PoisAdminComponent implements OnInit {
   pois3:Poi[]=[];
   category:any;
   categories:PoiCategory[]=[];
+  categories2 = [
+    {
+      id: 1,
+      category: 'History',
+      checked: false
+    },
+    {
+      id: 2,
+      category: 'Music',
+      checked: false,
+    },
+    {
+      id: 3,
+      category: 'Sports',
+      checked: false,
+    },
+    {
+      id: 4,
+      category: 'Museums',
+      checked: false,
+    },
+    {
+      id: 5,
+      category: 'Art',
+      checked: false,
+    },
+    {
+      id: 6,
+      category: 'Bars',
+      checked: false,
+    },
+    {
+      id: 7,
+      category: 'Nature',
+      checked: false,
+    },
+    {
+      id: 8,
+      category: 'Gastronomy',
+      checked: false,
+    },
+    {
+      id: 9,
+      category: 'Religion',
+      checked: false,
+    },
+    {
+      id: 10,
+      category: 'Shopping',
+      checked: false,
+    },
+    {
+      id: 11,
+      category: 'Theater',
+      checked: false,
+    },
+    {
+      id: 12,
+      category: 'Gastronomy',
+      checked: false,
+    },
+  ];
  starRating = 0; 
  pen = faPen;
   userIcon=faUser;
@@ -33,6 +95,7 @@ export class PoisAdminComponent implements OnInit {
   lastname:String='';
   id:any;
   email:any;
+  totalPois: any[];
   constructor(private router:Router,
     private userService:UserService,private httpClient: HttpClient,
     private route:ActivatedRoute) { 
@@ -40,6 +103,7 @@ export class PoisAdminComponent implements OnInit {
       this.pois2=[];
       this.pois3=[];
       this.categories=[];
+      this.totalPois=[];
     }
     h=sessionStorage.getItem('loggedUser');
 
@@ -56,6 +120,7 @@ export class PoisAdminComponent implements OnInit {
       this.userService.getPoisList(this.currentPoiId).subscribe(data=>{
         console.log(this.pois);
         this.pois=data;
+        this.totalPois=data;
         console.log(this.pois);
       })
     })
@@ -99,5 +164,45 @@ export class PoisAdminComponent implements OnInit {
      
       this.router.navigate(['login']);
     } 
+
+    changeCheckbox(event, category) {
+      this.pois=this.totalPois
+      console.log(this.categories2)
+      if (event.target.checked==true){
+        for(var i = 0; i < this.categories2.length; i++){
+          if (category!=this.categories2[i].category){
+            this.categories2[i].checked=false
+          }
+        }
+      }
+      console.log(event.target.checked);
+      console.log(category);
+      
+      console.log(this.categories2);
+      let currentCategories: any = [];
+      let currentPois: any = [];
+      for (var i = 0; i < this.categories2.length; i++) {
+        if (this.categories2[i].checked == true) {
+          currentCategories.push(this.categories2[i].category);
+        }
+      }
+      for (var i = 0; i < this.pois.length; i++) {
+        
+        if (currentCategories.includes(this.pois[i].category.description)) {
+         currentPois.push(this.pois[i])
+        }
+      
+      }
+      if (currentCategories.length!=0){
+        this.pois=currentPois
+      }
+      else{
+        this.pois=this.totalPois
+      }
+      
+    }
+    addPoi(){
+      this.router.navigate(['addPoi'])
+    }
 
 }

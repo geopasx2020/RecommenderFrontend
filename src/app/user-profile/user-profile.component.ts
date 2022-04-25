@@ -71,12 +71,8 @@ export class UserProfileComponent implements OnInit {
        this.age=data.age;
        this.registrationDate=data.regd;
        this.empStatus=data.empStatus
-       this.gender=data.gender
-      
-      
-       
-       
-      for (var i = 0; i < data.interestings.length; i++){
+       this.gender=data.gender       
+       for (var i = 0; i < data.interestings.length; i++){
         this.count=i;
         console.log('bbbbb',data.interestings[i])
         this.interestings.push(data.interestings[i].description)

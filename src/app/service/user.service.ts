@@ -44,10 +44,9 @@ export class UserService {
 
   createUser(user:User):Observable<Object>{
     return this.httpClient.post(`http://localhost:8080/api/v1/user`,user );
-
   }
-  createPoi(poi:Poi):Observable<Object>{
-    return this.httpClient.post(`http://localhost:8080/pois/save`,poi );
+  createPoi(poi:Poi,poiId:number,categoryId:number):Observable<Object>{
+    return this.httpClient.put(`http://localhost:8080/pois/${poiId}/category/${categoryId}`,poi );
 
   }
 
@@ -62,8 +61,8 @@ export class UserService {
   public login(email:any, password:any,role:any){
     
 
-    return this.httpClient.get( `http://localhost:8080/api/v1/user/User/${email}/${password}/${role}`);
-    // return this.httpClient.get( `http://127.0.0.1:8080/api/v1/user/login/${email}/${password}`);
+    // return this.httpClient.get( `http://localhost:8080/api/v1/user/User/${email}/${password}/${role}`);
+    return this.httpClient.get( `http://127.0.0.1:8080/api/v1/user/login/${email}/${password}`);
   }
 
   getProfileDetailsByUser(userId:any):Observable<User>{

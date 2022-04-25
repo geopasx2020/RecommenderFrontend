@@ -2,6 +2,31 @@ p {
     font-family: Tahoma, Verdana, sans-serif;
     }
 
-header {
-        font-family: Tahoma, Verdana, sans-serif;
+h1 {
+    font-family: Tahoma, Verdana, sans-serif;
         }
+form { 
+         font-family: Tahoma, Verdana, sans-serif;
+            }
+header { 
+                font-family: Tahoma, Verdana, sans-serif;
+                   }
+                   .viewbtn {
+                    background-color: #04AA6D;
+                    color: white;
+                    padding: 16px 20px;
+                    margin: 8px 0;
+                    border: none;
+                    cursor: pointer;
+                    width: 100%;
+                    opacity: 0.9;
+                    border-radius: 12px;
+                  }
+                  .viewbtn:hover {
+                    opacity: 1;
+                  }
+                  hr {
+                    border: 1px solid #f1f1f1;
+                    margin-bottom: 25px;
+                  }
+               

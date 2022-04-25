@@ -33,15 +33,8 @@ registrationDate = new Date().toLocaleDateString();
  
   onSubmit(){
     
-    // console.log(this.User)
-    // const resp = this.userService.createUser(this.User);
-    // resp.subscribe((data) => this.message = data);
-    //   this.message='User added succesfully';
-      
-    //   setTimeout(() => {"this is the first message"},3000 )
-    //   this.goToUsersList();
    this.userService.createUser(this.User).subscribe((response)=>{
-      // this.user=response;
+      
       setTimeout(() => {"this is the first message"},3000 )
    this.goToUsersList();
    },error=>{

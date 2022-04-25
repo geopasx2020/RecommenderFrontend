@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes,RouterModule } from '@angular/router';
 import { AddInterestingsComponent } from './add-interestings/add-interestings.component';
+import { AddPoiComponent } from './add-poi/add-poi.component';
 import { AddUserComponent } from './add-user/add-user.component';
 import { AdminpageComponent } from './adminpage/adminpage.component';
 import { ErrorComponent } from './error/error.component';
@@ -34,6 +35,7 @@ const routes:Routes=[
   {path:'logout',component:LogoutComponent,canActivate:[RouteGuardService]},
   {path:'todos/:id',component:TodoComponent,canActivate:[RouteGuardService]},
   {path:'users/:id',component:AddUserComponent},
+  {path:'addPoi',component:AddPoiComponent},
   {path:'students',component:ListStudentsComponent,canActivate:[RouteGuardService]},
   {path:'users',component:UserListComponent},
   {path:'update-user/:id',component:UpdateUserComponent},

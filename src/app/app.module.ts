@@ -12,7 +12,7 @@ import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LogoutComponent } from './logout/logout.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TodoComponent } from './todo/todo.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
@@ -33,6 +33,8 @@ import { ProductCategoryMenuComponent } from './product-category-menu/product-ca
 import { PoisAdminComponent } from './pois-admin/pois-admin.component';
 import { UserRecommendationsComponent } from './user-recommendations/user-recommendations.component';
 import { MapComponent } from './map/map.component';
+import { CustomInterceptor } from './service/data/interceptor.service';
+import { AddPoiComponent } from './add-poi/add-poi.component';
 
 
 
@@ -64,7 +66,8 @@ import { MapComponent } from './map/map.component';
     ProductCategoryMenuComponent,
     PoisAdminComponent,
     UserRecommendationsComponent,
-    MapComponent 
+    MapComponent,
+    AddPoiComponent 
    
     
    
@@ -78,7 +81,11 @@ import { MapComponent } from './map/map.component';
     FontAwesomeModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: CustomInterceptor ,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

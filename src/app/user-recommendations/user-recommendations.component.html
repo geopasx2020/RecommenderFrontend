@@ -23,10 +23,16 @@
       
      
       </ul>
-      <ul class="navbar-nav navbar-collapse justify-content-end">
+      <!-- <ul class="navbar-nav navbar-collapse justify-content-end">
         
       
         <li><a   (click)="logout()"  routerLink="/logout" class="nav-link"><fa-icon [icon]="arrowOut"></fa-icon> Logout</a></li>
+      
+      </ul> -->
+      <ul class="navbar-nav navbar-collapse justify-content-end">
+        
+        <li><a   class="nav-link"><fa-icon [icon]="userIcon"></fa-icon> {{ firstname }} {{ lastname }}  </a></li>
+        <li><a   (click)="logout()"  routerLink="/logout" class="nav-link"><fa-icon [icon]="arrowOut"></fa-icon> Logout    </a></li>
       
       </ul>
     </nav>  

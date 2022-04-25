@@ -29,6 +29,9 @@ export class PoisComponent implements OnInit {
   categoryId: any;
   pois3: Poi[] = [];
   category: any;
+  id:any;
+  lastname:String='';
+  firstname:String='';
   categories: PoiCategory[] = [];
   categories2 = [
     {
@@ -120,6 +123,7 @@ export class PoisComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.id=localStorage.getItem('userid')
     this.route.paramMap.subscribe(() => {
       this.userId_00 = this.userService.getUserId();
       const hasCategoryId: boolean = this.route.snapshot.paramMap.has('id');
@@ -137,6 +141,13 @@ export class PoisComponent implements OnInit {
         this.totalPois=data
       });
     });
+    this.userService.getProfileDetailsByUser(this.id).subscribe(data=>{
+      this.firstname=data.firstname
+      this.lastname=data.lastname
+     
+       
+       
+     } )
   }
   Search() {
     if (this.category != '') {
