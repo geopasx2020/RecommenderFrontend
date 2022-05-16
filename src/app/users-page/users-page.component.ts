@@ -64,4 +64,10 @@ public isLoggedin:boolean=false;
    this.router.navigate(['login']);
 
 }
+onSubmit(){
+  this.router.navigate(['recommendations'])
+}
+// onSubmit2(){
+//   this.router.navigate(['allMap'])
+// }
   }

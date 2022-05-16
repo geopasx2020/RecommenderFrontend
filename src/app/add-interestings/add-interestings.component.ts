@@ -83,15 +83,10 @@ export class AddInterestingsComponent implements OnInit {
     this.userService.getProfileDetailsByUser(localStorage.getItem('userid')).subscribe(data=>{
       console.log('userID: ',localStorage.getItem('userid'))
       this.userId=localStorage.getItem('userid')
-      for (let i = 0; i <= this.selectedInteresting.length; i++) {
-        
-       
+      for (let i = 0; i <= this.selectedInteresting.length; i++) {        
         this.interId=this.selectedInteresting[i]
-        this.userService.createInterestingByUser(this.userId,this.interId,this.User)
-      
-       
-        
-      }
+        this.userService.createInterestingByUser(this.userId,this.interId,this.User)     
+          }
      
   })
   this.router.navigate(['userprofile']);
@@ -107,9 +102,8 @@ export class AddInterestingsComponent implements OnInit {
     return status;      
     }
     selectChangeHandler (event: any) {
-      //update the ui
       this.interId = event.target.value;
-      console.log('refhghrthtrhr',this.interId)
+  
     }
 
     saveInteresting(){

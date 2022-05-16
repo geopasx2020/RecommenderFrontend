@@ -40,7 +40,10 @@
   </header>
   <p>
   
-Recommendations which best suit to your profile:
+Recommendations which best suit to your profile:<p>
+Your Latitude:{{ userLat }}
+<p>
+Your Longtitude:{{ userLong }}
 <!-- <div class="map-container">
   <div class="map-frame">
     <div id="map"></div>
@@ -83,10 +86,12 @@ Recommendations which best suit to your profile:
                 <td style="width:4.66%" >{{poi.startTime}}</td>
                 <td style="width:4.66%">{{poi.endTime}}</td> 
                 <td style="width:4.66%">{{poi.indoor}}</td> 
-                <td style="width:4.66%"><img src="{{poi.imagePath}}"  class="w3-round-xlarge"><br><a  routerLink="['/map',map.id]"  (click)="goToMap(poiId)"><fa-icon [icon]="mapIcon"></fa-icon> Map</a><button  (click)="goToMap(poiId)" class="btn btn-info"><fa-icon [icon]="mapIcon"></fa-icon> Map2</button></td> 
+                <td style="width:4.66%"><img src="http://localhost:8080/pois/images/{{poi.imageId}}"  class="w3-round-xlarge">
+                  <br><a  routerLink="['/map',map.id]"  (click)="goToMap(poiId)"><fa-icon [icon]="mapIcon"></fa-icon> Map</a><button  (click)="goToMap(poiId)" class="btn btn-info"><fa-icon [icon]="mapIcon"></fa-icon> Map2</button></td> 
                 <td style="width:4.66%"> <ngb-rating [max]="5" [(rate)]="poi.averageScore" [readonly]="true" ></ngb-rating></td>            
             </tr>         
         </tbody>
+        <!-- <img src="{{poi.imagePath}}"  class="w3-round-xlarge"> -->
       
     </table>
     

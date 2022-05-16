@@ -3,14 +3,13 @@
     <nav class="navbar navbar-expand-md navbar-dark bg-primary">
       <ul class="navbar-nav">
         <li><a  routerLink="/login" class="nav-link">Home</a></li>&nbsp;
-
-        
-        <li><a    routerLink="/users" class="nav-link">Users</a></li>&nbsp;
+        <li><a    routerLink="/users" class="nav-link"><fa-icon [icon]="userIcon"></fa-icon> Users</a></li>&nbsp;
+        <li><a    routerLink="/adminviewpois" class="nav-link"><fa-icon [icon]="locationIcon"></fa-icon> Pois</a></li>&nbsp;
       
         
       </ul>
       <ul class="navbar-nav navbar-collapse justify-content-end">
-        
+        <li><a   class="nav-link"><fa-icon [icon]="userIcon"></fa-icon> george karamousalidis  </a></li>
       
         <li><a   (click)="logout()"  routerLink="/logout" class="nav-link">Logout</a></li>
       
@@ -91,6 +90,6 @@
       [(ngModel)]= "User.regd" name="regd"   #regd="ngModel" placeholder="{{ registrationDate| date:'yyyy-MM-dd'  }}">
       
    
-      <button [disabled]="adduserForm.form.invalid" class="btn btn-success" (click)=onSubmit() type="submit">Submit</button>
+      <button [disabled]="adduserForm.form.invalid" class="btn btn-success"  type="submit">Submit</button>
   </form>
  

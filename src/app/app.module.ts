@@ -67,7 +67,7 @@ import { AddPoiComponent } from './add-poi/add-poi.component';
     PoisAdminComponent,
     UserRecommendationsComponent,
     MapComponent,
-    AddPoiComponent 
+    AddPoiComponent
    
     
    

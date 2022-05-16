@@ -51,6 +51,7 @@ const routes:Routes=[
   {path:'category',component:PoisComponent},
   {path:'addreviews',component:PoisComponent},
   {path:'recommendations',component:UserRecommendationsComponent},
+  
   {path:'map',component:MapComponent},
   {path:'map/:id',component:MapComponent},
   {path:'',redirectTo:'/pois',pathMatch:'full'},

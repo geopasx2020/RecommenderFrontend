@@ -13,7 +13,7 @@ export class CustomInterceptor implements HttpInterceptor {
         request = request.clone({
             withCredentials: true
         });
-
+        console.log("interceptor");
         return next.handle(request);
     }
 }

@@ -16,7 +16,12 @@ header {
 ngb-rating {
             color: #FFC107;
             font-size: 30px;
-            }           
+            }   
+            img {  
+                max-width: 75%;  
+                height: auto; 
+                border-radius: 8px; 
+                }          
 
           
                

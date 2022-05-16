@@ -83,7 +83,7 @@
                 <td style="width:4.66%" >{{poi.startTime}}</td>
                 <td style="width:4.66%">{{poi.endTime}}</td> 
                 <td style="width:4.66%">{{poi.indoor}}</td> 
-                <td style="width:4.66%"><img src="{{poi.imagePath}}"  class="w3-round-xlarge"></td> 
+                <td style="width:4.66%"><img src="http://localhost:8080/pois/images/{{poi.imageId}}"  class="w3-round-xlarge"></td> 
                 <td style="width:4.66%"> <ngb-rating [max]="5" [(rate)]="poi.averageScore" [readonly]="true" ></ngb-rating><br><b>{{ poi.averageScore }}/5</b></td> 
                
                                                

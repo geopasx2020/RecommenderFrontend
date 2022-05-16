@@ -33,6 +33,8 @@ export class UserRecommendationsComponent implements OnInit {
   lastname:String='';
   firstname:String='';
   popup = L.popup();
+  userLong:any;
+  userLat:any
   h=sessionStorage.getItem('loggedUser');
  private initMap():void{
    this.map=L.map('map',{
@@ -71,6 +73,16 @@ export class UserRecommendationsComponent implements OnInit {
   
   ngOnInit(): void {
     // this.initMap();
+    if(!navigator.geolocation){
+      console.log("location is not supported")
+    }
+    navigator.geolocation.getCurrentPosition((position)=>{
+      this.userLat= position.coords.latitude
+      this.userLong=position.coords.longitude
+      console.log(
+        position.coords.latitude,position.coords.longitude)
+        ;
+    });
     this.id=localStorage.getItem('userid')
     this.route.paramMap.subscribe(()=>{
       this.userId_00=this.userService.getUserId();
